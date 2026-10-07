@@ -13,7 +13,7 @@ sys.path.insert(0, str(ROOT))
 
 from src.preprocessing import FEATURES, TARGET, load_and_prepare_data
 
-DATA_PATH = ROOT / "dataset" / "student_data.csv"
+DATA_PATH = ROOT  / "student_data.csv"
 MODEL_PATH = ROOT / "model" / "student_performance_model.pkl"
 
 def main():
