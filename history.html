@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction History</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container wide">
+    <div class="card">
+        <h1>Prediction History</h1>
+        {% if rows %}
+        <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Attendance</th>
+                    <th>Assignment</th>
+                    <th>Internal</th>
+                    <th>Previous Exam</th>
+                    <th>Study Hours</th>
+                    <th>Prediction</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for row in rows %}
+                <tr>
+                    <td>{{ row["name"] }}</td>
+                    <td>{{ row["attendance"] }}</td>
+                    <td>{{ row["assignment_average"] }}</td>
+                    <td>{{ row["internal_marks"] }}</td>
+                    <td>{{ row["previous_exam_marks"] }}</td>
+                    <td>{{ row["study_hours"] }}</td>
+                    <td>{{ row["prediction"] }}</td>
+                    <td>{{ row["created_at"] }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        </div>
+        {% else %}
+        <p>No prediction records yet.</p>
+        {% endif %}
+        <a class="button-link" href="{{ url_for('index') }}">Back to Prediction</a>
+    </div>
+</div>
+</body>
+</html>
